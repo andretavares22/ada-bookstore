@@ -35,7 +35,7 @@ public class BookDTO {
     }
 
     public void setAuthor(String author) {
-        this.name = author;
+        this.author = author;
     }
 
     public String getDescription() {
