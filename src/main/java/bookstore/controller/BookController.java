@@ -8,6 +8,7 @@ import jakarta.validation.Valid;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import jakarta.annotation.security.RolesAllowed;
 
 import java.util.List;
 
@@ -20,6 +21,7 @@ public class BookController {
     BookService bookService;
 
     @GET
+    @RolesAllowed({"user", "admin"})
     public Response listAll() {
         List<Book> books = bookService.findAll();
         return Response.ok(books).build();
@@ -27,6 +29,7 @@ public class BookController {
 
     @GET
     @Path("/{id}")
+    @RolesAllowed({"user", "admin"})
     public Response findById(@PathParam("id") Long id) {
         try {
             Book book = bookService.findById(id);
@@ -37,6 +40,7 @@ public class BookController {
     }
 
     @POST
+    @RolesAllowed("admin")
     public Response create(@Valid BookDTO bookDTO) {
         Book createdBook = bookService.create(bookDTO);
         return Response.status(Response.Status.CREATED).entity(createdBook).build();
@@ -44,6 +48,7 @@ public class BookController {
 
     @PUT
     @Path("/{id}")
+    @RolesAllowed("admin")
     public Response update(@PathParam("id") Long id, @Valid BookDTO bookDTO) {
         try {
             Book updatedBook = bookService.update(id, bookDTO);
@@ -55,6 +60,7 @@ public class BookController {
 
     @DELETE
     @Path("/{id}")
+    @RolesAllowed("admin")
     public Response delete(@PathParam("id") Long id) {
         try {
             bookService.delete(id);
