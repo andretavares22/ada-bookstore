@@ -1,62 +1,39 @@
-# bookstore-api
+# Bookstore
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+## Resumo da Aplicação
 
-If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
+A aplicação "Bookstore" permite gerenciar um cadastro de livros, que conta com 4 parâmetros:
 
-## Running the application in dev mode
+- Nome;
+- Autor;
+- Descrição;
+- Preço.
 
-You can run your application in dev mode that enables live coding using:
+A aplicação expõe suas funcionalidades através de endpoints REST e já possui 3 livros pré-cadastrados.
 
-```shell script
-./mvnw quarkus:dev
-```
+## Tecnologias utilizadas
 
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at <http://localhost:8080/q/dev/>.
+- Java;
+- Quarkus;
+- Maven;
+- Swagger;
+- H2.
 
-## Packaging and running the application
+## Instalação e execução
 
-The application can be packaged using:
+Para rodar o projeto é necessário ter o Maven instalado na máquina.
 
-```shell script
-./mvnw package
-```
+Backend - vá na raiz do projeto e rode os comandos:
+- mvn install (para instalar as dependências do backend)
+- mvn quarkus:dev (para rodar o backend)
 
-It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/quarkus-app/lib/` directory.
+## Como utilizar a aplicação
 
-The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
+Sugiro acessar o endereço: http://localhost:8080/q/swagger-ui/
 
-If you want to build an _über-jar_, execute the following command:
+## Considerações Finais
 
-```shell script
-./mvnw package -Dquarkus.package.jar.type=uber-jar
-```
+Optei por entregar apenas o exercício 1 porque eu tive difilculdades para finalizar o exercício 2. Conclui as configurações do Keycloak, porém não consegui rodar a aplicação por um problema com o Docker na minha máquina. Depois de muito insistir, preferi voltar atrás.
 
-The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
-
-## Creating a native executable
-
-You can create a native executable using:
-
-```shell script
-./mvnw package -Dnative
-```
-
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using:
-
-```shell script
-./mvnw package -Dnative -Dquarkus.native.container-build=true
-```
-
-You can then execute your native executable with: `./target/bookstore-api-1.0.0-SNAPSHOT-runner`
-
-If you want to learn more about building native executables, please consult <https://quarkus.io/guides/maven-tooling>.
-
-## Provided Code
-
-### REST
-
-Easily start your REST Web Services
-
-[Related guide section...](https://quarkus.io/guides/getting-started-reactive#reactive-jax-rs-resources)
+Atenciosamente,
+André Tavares De Oliveira
